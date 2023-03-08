@@ -23,9 +23,11 @@ class Checkbox(Field):
             >>> confirm.set_to(True)
 
         """
-        if state:
+        input_elem = self.find()
+        input_elem_state = input_elem.checked
+        if state == input_elem_state:
             self.check()
-        else:
+        elif state != input_elem_state:
             self.uncheck()
 
     def toggle(self) -> None:
