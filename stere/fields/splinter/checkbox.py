@@ -25,9 +25,9 @@ class Checkbox(Field):
         """
         input_elem = self.find()
         input_elem_state = input_elem.checked
-        if state != input_elem_state and not input_elem_state:
+        if state and state != input_elem_state:
             self.check()
-        elif state != input_elem_state and input_elem_state:
+        elif state != input_elem_state:
             self.uncheck()
 
     def toggle(self) -> None:
